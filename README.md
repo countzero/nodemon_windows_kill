@@ -16,7 +16,7 @@ git clone git@github.com:countzero/nodemon_windows_kill.git
 
 ### Install nodemon dependency
 
-Navigate into the project directory and install den custom nodemon dependency:
+Navigate into the project directory and install the custom nodemon dependency:
 
 ```
 npm install
