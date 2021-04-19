@@ -1,0 +1,14 @@
+{
+    "name": "nodemon_windows_kill",
+    "version": "0.0.1",
+    "description": "This is a test for a nodemon bugfix that enables SIGINT on Windows.",
+    "main": "./index.js",
+    "author": "Finn Kumkar",
+    "license": "MIT",
+    "scripts": {
+        "watch": "npx nodemon ./index.js"
+    },
+    "dependencies": {
+        "nodemon": "git://github.com/countzero/nodemon.git#1424afca2d6646ddb276123f619b3b1f6363553a"
+    }
+}
