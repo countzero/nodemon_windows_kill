@@ -29,9 +29,17 @@ npm install
 Start the test application with nodemon via:
 
 ```
-npx nodemon ./index.js
+npm run watch
 ```
 
 ### Modify application
 
-Change a comment in the ./index.js file. This should trigger the SIGINT POSIX signal and the app should shut itself down gracefully.
+Modify the `./index.js` file to trigger the SIGINT POSIX signal.
+
+### Debug
+
+Start nodemon in verbose mode via:
+
+```
+npm run debug
+```

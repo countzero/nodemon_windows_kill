@@ -6,7 +6,8 @@
     "author": "Finn Kumkar",
     "license": "MIT",
     "scripts": {
-        "watch": "npx nodemon ./index.js"
+        "watch": "npx nodemon ./index.js",
+        "debug": "set DEBUG=* & npm run watch"
     },
     "dependencies": {
         "nodemon": "git://github.com/countzero/nodemon.git#1424afca2d6646ddb276123f619b3b1f6363553a"
