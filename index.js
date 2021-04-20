@@ -11,10 +11,10 @@ let isShuttingDown = false;
 // We are gracefully terminating the node process on the first SIGINT.
 process.on('SIGINT', async signal => {
 
-    console.info(`The node process (${process.pid}) received a ${signal} POSIX signal.`);
+    const signalInformation = `The node process (${process.pid}) received a ${signal} POSIX signal`;
 
     if (isShuttingDown) {
-        console.warn('Already shutting down, ignoring...');
+        console.info(`${signalInformation} - already shutting down, ignoring...`);
         return;
     }
 
@@ -22,7 +22,7 @@ process.on('SIGINT', async signal => {
 
     const sleep = milliseconds => new Promise(resolve => setTimeout(resolve, milliseconds));
 
-    console.info('Initiating shutdown...');
+    console.info(`${signalInformation} - initiating shutdown...`);
 
     // This simulates the time a system needs to prepare for shutdown.
     await sleep(1000);
