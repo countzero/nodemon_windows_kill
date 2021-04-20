@@ -6,15 +6,26 @@
 // See https://github.com/remy/nodemon/issues/1720 for more details.
 //
 
-// We are gracefully terminating the node process on SIGINT.
+let isShuttingDown = false;
+
+// We are gracefully terminating the node process on the first SIGINT.
 process.on('SIGINT', async signal => {
+
+    console.info(`The node process (${process.pid}) received a ${signal} POSIX signal.`);
+
+    if (isShuttingDown) {
+        console.warn('Already shutting down, ignoring...');
+        return;
+    }
+
+    isShuttingDown = true;
 
     const sleep = milliseconds => new Promise(resolve => setTimeout(resolve, milliseconds));
 
-    console.info(`The node process (${process.pid}) received a ${signal} POSIX signal, shutting down...`);
+    console.info('Initiating shutdown...');
 
     // This simulates the time a system needs to prepare for shutdown.
-    await sleep(3000);
+    await sleep(1000);
 
     console.info('Terminating process with exit code 0...');
     process.exit(0);
