@@ -6,10 +6,12 @@
     "author": "Finn Kumkar",
     "license": "MIT",
     "scripts": {
-        "watch": "npx nodemon ./index.js",
-        "debug": "set DEBUG=* & npm run watch"
+        "start": "node ./index.js",
+        "watch": "npx nodemon --signal SIGINT ./index.js",
+        "debug": "node -r dotenv/config ./node_modules/nodemon/bin/nodemon.js --signal SIGINT ./index.js"
     },
     "dependencies": {
+        "dotenv": "8.2.0",
         "nodemon": "git://github.com/countzero/nodemon.git#1424afca2d6646ddb276123f619b3b1f6363553a"
     }
 }

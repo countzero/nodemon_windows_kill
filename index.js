@@ -11,20 +11,25 @@ process.on('SIGINT', async signal => {
 
     const sleep = milliseconds => new Promise(resolve => setTimeout(resolve, milliseconds));
 
-    console.info(`The node process (${process.pid}) received a ${signal} POSIX signal, starting graceful shutdown...`);
+    console.info(`The node process (${process.pid}) received a ${signal} POSIX signal, shutting down...`);
 
-    // This simulates the time a system needs to prepare for shutdown. i.e. close connections, file handlers etc.
-    await sleep(1000);
+    // This simulates the time a system needs to prepare for shutdown.
+    await sleep(3000);
 
     console.info('Terminating process with exit code 0...');
     process.exit(0);
 });
 
-// We are implementing a simple HTTP server that responds with the current time.
-require('http').createServer((request, response) => {
-    response.writeHead(200, {'Content-Type': 'text/plain'});
-    response.write((new Date()).toString());
-    response.end();
-}).listen(8080);
+const server = require('http')
 
-console.info('The server started listening on http://localhost:8080');
+    // We are implementing a simple HTTP server that responds with the current time.
+    .createServer((request, response) => {
+        response.writeHead(200, {'Content-Type': 'text/plain'});
+        response.write((new Date()).toString());
+        response.end();
+    })
+
+    // We are binding to any free port on the host to avoid EADDRINUSE errors.
+    .listen();
+
+console.info(`The server started listening on http://localhost:${server.address().port}`);

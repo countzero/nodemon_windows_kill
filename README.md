@@ -1,6 +1,6 @@
 # nodemon + windows-kill
 
-This is a test for a nodemon bugfix that enables SIGINT on Windows.
+This is a cross-platform compatible test for a nodemon bugfix that enables SIGINT on Windows.
 
 See https://github.com/remy/nodemon/issues/1720 for more details.
 
