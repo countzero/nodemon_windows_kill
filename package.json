@@ -12,6 +12,6 @@
     },
     "dependencies": {
         "dotenv": "8.2.0",
-        "nodemon": "git://github.com/countzero/nodemon.git#1424afca2d6646ddb276123f619b3b1f6363553a"
+        "nodemon": "git://github.com/countzero/nodemon.git#50aee8d43005b3a355574ce91c3e145ded7a5999"
     }
 }
