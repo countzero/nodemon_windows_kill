@@ -1,17 +1,21 @@
 {
     "name": "nodemon_windows_kill",
-    "version": "0.0.1",
+    "version": "1.0.0",
     "description": "This is a test for a nodemon bugfix that enables SIGINT on Windows.",
     "main": "./index.js",
     "author": "Finn Kumkar",
     "license": "MIT",
     "scripts": {
         "start": "node ./index.js",
-        "watch": "npx nodemon --signal SIGINT ./index.js",
-        "debug": "node -r dotenv/config ./node_modules/nodemon/bin/nodemon.js --signal SIGINT ./index.js"
+        "watch": "npm run watch-graceful-shutdown",
+        "watch-graceful-shutdown": "npx nodemon --signal SIGINT ./index.js",
+        "watch-hard-shutdown": "npx nodemon --signal SIGKILL ./index.js",
+        "debug": "npm run debug-sigint",
+        "debug-sigint": "node -r dotenv/config ./node_modules/nodemon/bin/nodemon.js --signal SIGINT ./index.js",
+        "debug-sigkill": "node -r dotenv/config ./node_modules/nodemon/bin/nodemon.js --signal SIGKILL ./index.js"
     },
     "dependencies": {
         "dotenv": "8.2.0",
-        "nodemon": "git://github.com/countzero/nodemon.git#50aee8d43005b3a355574ce91c3e145ded7a5999"
+        "nodemon": "git://github.com/countzero/nodemon.git#f7c6e0deebc614c309817dd790d117b0c9326ea2"
     }
 }

@@ -44,5 +44,3 @@ const server = require('http')
     .listen();
 
 console.info(`The server started listening on http://localhost:${server.address().port}`);
-
-
